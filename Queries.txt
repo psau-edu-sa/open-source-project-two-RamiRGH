@@ -1,0 +1,116 @@
+/*
+Who are our FIVE best customers 
+that order from us 
+(in total ordered value)?
+*/
+
+select customer_id , c_name, ordered_value
+from customer
+order by ordered_value DESC limit 5;
+
+/*
+What professor teaches the 
+most amount of classes?
+*/
+
+-- DOESNT WORK IN ORACLE
+
+select instructor_id, i_name
+from instructor
+where instructor_id IN ( select instructor_id
+    from assigned_courses
+    having count(instructor_id>1))
+    ;
+
+/*
+What professor teaches the most 
+amounts of ACTIVE classes?
+*/
+
+/*?????*/
+
+/*
+What professor has been paid 
+the most daring the year 2014?
+*/
+
+SELECT i_name, salary
+FROM instructor
+where salary = (select max(salary) from instructor);
+
+
+/*
+How many classes do we have ACTIVE?
+*/
+
+select count(*)
+from course 
+where course_status = 'Active' ;
+
+/*
+How many classes do we 
+have IN DEVELOPMENT?
+*/
+
+select count(*)
+from course 
+where course_status = 'In Development' ;
+
+/*
+What class is the most
+ expensive class?
+*/
+
+SELECT course_code, course_name, cost
+FROM course
+where cost = (select max(cost) from course);
+
+/*
+List all the customer information 
+that are in ZIP code 11718
+*/
+
+select *
+from customer 
+where zip_code = 11718;
+
+/*
+What class is our best class?
+a.	Most Ordered
+b.	Most profitable
+*/
+
+/*???????*/
+
+/*
+What customers have ordered less 
+than $500 on all orders from us 
+*/
+
+select c_name, ordered_value
+from customer
+where ordered_value < 500;
+
+/*
+From what postal code were
+most of our orders from?
+*/
+
+/*???????*/
+
+/*
+List the customers that have 
+ordered over $1,000 in training.
+*/
+
+select c_name, ordered_value
+from customer
+where ordered_value > 999;
+
+/*
+List all the customers who
+have taken courses and also
+cancelled from courses.
+*/
+
+/*???????*/

@@ -1,0 +1,113 @@
+CREATE TABLE Customer(
+customer_id int(3) NOT NULL,
+c_name VARCHAR(30),
+phone_number INT(10) UNIQUE,
+Family VARCHAR(250),
+likes VARCHAR(250),
+dislikes VARCHAR(250),
+ordered_value DECIMAL (7, 2),
+zip_code INT (6),
+city VARCHAR(20),
+isValid INT (1) CHECK (isValid IN (0,1)),
+email VARCHAR(40),
+pass VARCHAR(40),
+CONSTRAINT customerpk PRIMARY KEY ( customer_id )
+);
+
+CREATE TABLE Payment_method(
+payment_id int (1) NOT NULL,
+payment_name VARCHAR (15),
+CONSTRAINT Paymentpk PRIMARY KEY ( payment_id )
+);
+
+CREATE TABLE business(
+business_id int (3) NOT NULL,
+b_name VARCHAR (30),
+email VARCHAR(40),
+pass VARCHAR(10),
+CONSTRAINT businesspk PRIMARY KEY (business_id) 
+);
+
+CREATE TABLE course(
+course_code varchar(7) NOT NULL,
+course_name VARCHAR(30),
+cost DECIMAL (7, 2),
+business_id int (3),
+course_status VARCHAR (30) CHECK (course_status IN ('In Development','Expired','Active','Cancelled')),
+course_date date,
+CONSTRAINT coursepk PRIMARY KEY ( course_code ),
+CONSTRAINT course_fk FOREIGN KEY ( business_id ) REFERENCES business (business_id) ON DELETE CASCADE
+);
+
+CREATE TABLE instructor (
+instructor_id int (3) NOT NULL,
+i_name VARCHAR(30),
+email VARCHAR (30),
+pass VARCHAR (10),
+phone_number INT(10) UNIQUE,
+zip_code INT (6),
+city VARCHAR(20),
+salary INT(4),
+CONSTRAINT instructorpk PRIMARY KEY ( instructor_id )
+);
+
+/*
+Customer & course table
+*/
+CREATE TABLE enroll ( 
+course_code varchar(7) NOT NULL,
+customer_id int(3) NOT NULL,
+course_status VARCHAR (15) CHECK (course_status IN ('Not Started', 'Just Started', 'In Progress', 'Completed','Cancelled')),
+course_method VARCHAR (15) CHECK (course_method IN ('instructor', 'internet', 'self-pace')),
+CONSTRAINT enroll_fk1 FOREIGN KEY ( course_code ) REFERENCES course (course_code) ON DELETE CASCADE,
+CONSTRAINT enroll_fk2 FOREIGN KEY ( customer_id ) REFERENCES customer (customer_id) ON DELETE CASCADE
+);
+
+/*
+Customer & payment method
+*/
+CREATE TABLE payment (
+payment_id int (1) NOT NULL,
+customer_id int(3) NOT NULL,
+CONSTRAINT payment_fk1 FOREIGN KEY ( payment_id ) REFERENCES Payment_method (payment_id) ON DELETE CASCADE,
+CONSTRAINT payment_fk2 FOREIGN KEY ( customer_id ) REFERENCES customer (customer_id) ON DELETE CASCADE
+);
+
+/*
+Instructor & course
+*/
+CREATE TABLE assigned_courses(
+instructor_id int(3) NOT NULL,
+course_code varchar(7) NOT NULL,
+CONSTRAINT assigned_courses_fk1 FOREIGN KEY ( instructor_id ) REFERENCES instructor (instructor_id) ON DELETE CASCADE,
+CONSTRAINT assigned_courses_fk2 FOREIGN KEY ( course_code ) REFERENCES course (course_code) ON DELETE CASCADE
+);
+
+/*
+business & customer
+*/
+CREATE TABLE contacts(
+contact_id int (3) NOT NULL,
+business_email VARCHAR(40),
+customer_email VARCHAR(40),
+message VARCHAR(250),
+CONSTRAINT contactspk PRIMARY KEY ( contact_id )
+);
+
+/*
+qualfied instructors course
+*/
+CREATE TABLE qualfied_instructors_course(
+course_code varchar(7) NOT NULL,
+instructor_id int (3) NOT NULL,
+CONSTRAINT qualfied_instructors_course_fk1 FOREIGN KEY ( course_code ) REFERENCES course (course_code) ON DELETE CASCADE
+);
+
+/*
+required courses
+*/
+CREATE TABLE required_courses(
+course_code varchar(7) NOT NULL ,
+required_courses VARCHAR (250),
+CONSTRAINT required_courses_fk1 FOREIGN KEY (course_code) REFERENCES course (course_code) ON DELETE CASCADE
+);

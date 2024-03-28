@@ -1,0 +1,236 @@
+
+/*
+Customers
+*/
+
+/*1*/
+INSERT INTO Customer 
+VALUES (1,'Rawan',0555555555, 'Consists of Mother, Father, 2 sisters and one brother', 'Likes tea', 'Dislikes coffee', 0, 22222, 'Makkah', 1, 'rawan@email.com','123@@');
+
+/*2*/
+INSERT INTO Customer 
+VALUES (2,'Ali',0155555555, 'Consists of Mother, 2 sisters and 2 brother', 'likes art','Disikes math', 50, 11718, 'Jeddah', 1, 'ali@email.com','123@@');
+
+/*3*/
+INSERT INTO Customer 
+VALUES (3,'Mohammad', 0255555555, 'Consists of Mother, 2 sisters and 2 brother', 'Loves football', 'Disikes junk food', 600, 11718, 'Jeddah', 1, 'Mohammad@email.com','1f3@@');
+
+/*4*/
+INSERT INTO Customer 
+VALUES (4,'Rayan',0347850361, 'Consists of Mother, Father, one sister and 3 brother', 'intrested in data science', 'Disikes computer graphics', 200, 25782, 'Taif', 1, 'Rayan@email.com','fsdkflj');
+
+/*5*/
+INSERT INTO Customer 
+VALUES (5,'Mahmoud',0561927347, 'Consists of Mother, Father, 7 brother', 'would like to become a software engineer', 'Disikes algorithms', 650, 11718, 'Jeddah', 1, 'Mahmoud@email.com','dsu894j');
+
+/*6*/
+INSERT INTO Customer 
+VALUES (6,'tasneem',0561927344, 'Consists of Mother, Father, 5 sisters and 1 brother', 'would like to become a Data scientest','Disikes back-end development', 890, 11794, 'Jeddah', 1, 'Tasneem@email.com','dhsg#4');
+
+/*7*/
+INSERT INTO Customer 
+VALUES (7,'Reem',0561927394, 'Consists of Mother, Father, 1 brother', 'loves math','Disikes front-end development', 0, 12586, 'Jeddah', 0, 'Reem@email.com','fgdy#9');
+
+/*
+Payment methods
+*/
+
+/*1*/
+INSERT INTO Payment_method 
+VALUES (1, 'PayPal');
+
+/*2*/
+INSERT INTO Payment_method 
+VALUES (2, 'Mada');
+
+/*3*/
+INSERT INTO Payment_method 
+VALUES (3, 'Visa');
+
+/*4*/
+INSERT INTO Payment_method 
+VALUES (4, 'Master Card');
+
+/*
+business accounts
+*/
+
+/*1*/
+INSERT INTO business
+VALUES (1, 'CISCO', 'cisco@email.com', 'jh#$43');
+
+/*2*/
+INSERT INTO business
+VALUES (2, 'Taqat', 'taqat@email.com', 'loi349$#');
+
+/*3*/
+INSERT INTO business
+VALUES (3, 'google', 'google@email.com', 'mjnk%#$232');
+
+/*
+instructors
+*/
+
+/*1*/
+INSERT INTO instructor 
+VALUES (1,'Aisha', 'AishaKJ@outlook.com', 'dhjf348@@', 0558884532, 12044, 'Jeddah', 5900);
+
+/*2*/
+INSERT INTO instructor 
+VALUES (2,'Sameer', 'SameerN@outlook.com', '##fds34', 0547895131, 12378, 'Makkah', 9000);
+
+/*3*/
+INSERT INTO instructor 
+VALUES (3,'Hamad', 'HamadSD@outlook.com', 'fhnf45!@', 0537195943, 12377, 'Makkah', 5300);
+
+/*4*/
+INSERT INTO instructor 
+VALUES (4,'Maram', 'MaramAS@outlook.com', 'jkg%$#4', 0537195999, 12374, 'Riyadh', 4500);
+
+/*5*/
+INSERT INTO instructor 
+VALUES (5,'Sarah', 'SarahAL@outlook.com', 'kjr$%34', 0537195753, 12372, 'Riyadh', 8500);
+
+/*
+courses
+*/
+
+/*1*/
+INSERT INTO course
+VALUES ('net101', 'introduction to networks', 300, 1, 'Cancelled', '2022-12-3');
+
+/*2*/
+INSERT INTO course
+VALUES ('net201', 'networks 2', 500, 1, 'Active', '2023-11-4');
+
+/*3*/
+INSERT INTO course
+VALUES ('oop101', 'Java OOP', 300, 3, 'In Development', '2023-6-1');
+
+/*4*/
+INSERT INTO course
+VALUES ('pyth1', 'introduction into python', 150, 3, 'Expired', '2020-1-30');
+
+/*5*/
+INSERT INTO course
+VALUES ('HR101', 'Human Resources', 300, 2, 'Active', '2023-4-29');
+
+/*5*/
+INSERT INTO course
+VALUES ('HR201', 'Human Resources', 600, 2, 'Cancelled', '2022-12-5');
+
+/*
+enrollments
+*/
+
+/*1*/
+INSERT INTO enroll
+VALUES ('net101', 1, 'Cancelled', 'instructor');
+
+/*2*/
+INSERT INTO enroll
+VALUES ('net201', 2, 'Cancelled', 'internet');
+
+/*3*/
+INSERT INTO enroll
+VALUES ('HR101', 3, 'Completed', 'internet');
+
+/*4*/
+INSERT INTO enroll
+VALUES ('HR101', 4, 'Completed', 'self-pace');
+
+/*4*/
+INSERT INTO enroll
+VALUES ('net201', 4, 'In Progress', 'self-pace');
+
+/*5*/
+INSERT INTO enroll
+VALUES ('HR101', 5, 'Just Started', 'instructor');
+
+/*5*/
+INSERT INTO enroll
+VALUES ('net201', 5, 'Just Started', 'instructor');
+
+/*
+payments
+*/
+
+/*1*/
+INSERT INTO Payment 
+VALUES (1, 6);
+
+/*2*/
+INSERT INTO Payment 
+VALUES (2, 3);
+
+/*3*/
+INSERT INTO Payment 
+VALUES (2, 2);
+
+/*4*/
+INSERT INTO Payment 
+VALUES (3, 1);
+
+/*
+contacts
+*/
+
+/*1*/
+INSERT INTO contacts
+VALUES (1, 'cisco@email.com', 'rawan@email.com', 'thank you for helping me');
+
+/*2*/
+INSERT INTO contacts 
+VALUES (2, 'google@email.com', 'Mohammad@email.com', 'i need your help regarding the professor who is in charge of python course');
+
+/*3*/
+INSERT INTO contacts 
+VALUES (3, 'taqat@email.com', 'Tasneem@email.com', 'we need more A.I courses');
+
+/*
+Qualfied instructors
+*/
+
+/*1*/
+INSERT INTO qualfied_instructors_course
+VALUES ('oop101', 1);
+
+/*2*/
+INSERT INTO qualfied_instructors_course
+VALUES ('oop101', 3);
+
+/*3*/
+INSERT INTO qualfied_instructors_course
+VALUES ('oop101', 2);
+
+/*
+required courses
+*/
+
+/*1*/
+INSERT INTO required_courses
+VALUES ('net201', 'net101');
+
+/*2*/
+INSERT INTO required_courses
+VALUES ('HR101', 'HR201');
+
+/*
+Instructor & course
+*/
+
+/*1*/
+INSERT INTO assigned_courses
+VALUES (1, 'HR101');
+
+/*2*/
+INSERT INTO assigned_courses
+VALUES (1, 'pyth1');
+
+/*3*/
+INSERT INTO assigned_courses
+VALUES (2, 'net201');
+
+/*4*/
+INSERT INTO assigned_courses
+VALUES (5, 'oop101');
